@@ -9,16 +9,16 @@
       (+ (ff (- n 1)) (* 2 (ff (- n 2))) (* 3 (ff (- n 3)))))
    (if (< n 3)
       n
-      (else (recursive))))
+      (recursive)))
 
 ;;;Iterative Process
 
 (define (f a b c count)
    (if (< count 3)
       a
-      (else (f (+ a (* 2 b) (* 3 c)) a b (- count 1)))))
+       (f (+ a (* 2 b) (* 3 c)) a b (- count 1))))
 
-(define (ff n)
+(define (ff-iter n)
    (f 2 1 0 n))
 
 ;;;Exercise 1.12
@@ -29,7 +29,7 @@
    (cond ((or (< row 0) (< column 0) (< row column)) 0)
          ((= row 0) 1)
          ((= row column) 1)
-         (else (+ (pascal (- row 1) column) (pascal (- row 1) (- column row))))))
+         (else (+ (pascal (- row 1) column) (pascal (- row 1) (- column 1))))))
 
 ;;;Exercise 1.13
 
